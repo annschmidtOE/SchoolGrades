@@ -26,7 +26,16 @@ public class MainStudent {
       students.add(new Student(studentName, studentGrades));
     }
 
-      System.out.println(students);
+    for (int i = 0; i < students.size(); i++) {
+      System.out.println();
+      System.out.print("Student name: ");
+      System.out.println(students.get(i).getName());
 
+      int j = 1;
+      for (int grade : students.get(i).getGrades()) {
+        System.out.println("Grade " + (j) + ". " + grade);
+        j++;
+      }
+    }
   }
 }
