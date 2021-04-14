@@ -25,5 +25,8 @@ public class MainStudent {
 
       students.add(new Student(studentName, studentGrades));
     }
+
+      System.out.println(students);
+
   }
 }
