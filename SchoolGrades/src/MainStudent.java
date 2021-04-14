@@ -2,14 +2,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainStudent {
-  public static void main(String[] args) {
-    Scanner scan = new Scanner(System.in);
 
+  static int[] studentGrades;
+  static ArrayList<Student> students = new ArrayList<>();
+
+  static Scanner scan = new Scanner(System.in);
+
+  public void createStudent() {
     System.out.print("Enter a number of student you wanna create: ");
-    int studentCount = scan.nextInt();
-
-    int[] studentGrades;
-    ArrayList<Student> students = new ArrayList<>();
+    int studentCount = validateInt();
 
     for (int i = 0; i < studentCount; i++) {
       System.out.println();
@@ -25,7 +26,21 @@ public class MainStudent {
 
       students.add(new Student(studentName, studentGrades));
     }
+  }
 
+  public int validateInt() {
+    while (!scan.hasNextInt()) {
+      System.out.print("Enter a number: ");
+      scan.next();
+    }
+
+    int nextNumber = scan.nextInt();
+    scan.nextLine();
+
+    return nextNumber;
+  }
+
+  public void showStudent() {
     for (int i = 0; i < students.size(); i++) {
       System.out.println();
       System.out.print("Student name: ");
@@ -37,5 +52,16 @@ public class MainStudent {
         j++;
       }
     }
+  }
+
+  public void run() {
+    createStudent();
+    showStudent();
+  }
+
+  public MainStudent() {}
+
+  public static void main(String[] args) {
+    new MainStudent().run();
   }
 }
