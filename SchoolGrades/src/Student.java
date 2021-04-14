@@ -14,4 +14,15 @@ public class Student {
         this.name = name;
         this.grades = grades;
     }
+
+    public String toString(){
+        StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append("Student name: ").append(name);
+        for (int i = 0; i < grades.length; ++i) {
+            stringBuilder.append("Garde " + (i) + ". " + grades[i]);
+        }
+
+        return stringBuilder.toString();
+    }
 }
