@@ -6,13 +6,6 @@ public class School {
   private ArrayList<Student> students;
   private final UI ui = new UI();
 
-  public void createGrades() {
-    for (int j = 0; j < studentGrades.length; j++) {
-      studentGrades[j] =
-          ui.getGrade("Enter your grade (" + (((j) + 1) + "/" + studentGrades.length) + ") : ");
-    }
-  }
-
   public void run() {
     createStudent();
     ui.printStudent(students);
@@ -22,6 +15,15 @@ public class School {
     return ui.getInt("Enter a number of student you wanna create: ");
   }
 
+  public void createGrades() {
+    studentGrades = new int[7];
+
+    for (int j = 0; j < studentGrades.length; j++) {
+      studentGrades[j] =
+          ui.getGrade("Enter your grade (" + (((j) + 1) + "/" + studentGrades.length) + ") : ");
+    }
+  }
+
   public void createStudent() {
     students = new ArrayList<>();
 
@@ -29,7 +31,6 @@ public class School {
 
     for (int i = 0; i < studentCount; i++) {
       System.out.println();
-      studentGrades = new int[7];
 
       String studentName = ui.getString("Enter a student name: ");
 

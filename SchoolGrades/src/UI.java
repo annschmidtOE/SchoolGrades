@@ -11,13 +11,13 @@ public class UI {
   }
 
   public int getInt(String message) {
-    System.out.println(message);
+    System.out.print(message);
     return scan.nextInt();
   }
 
   public int getGrade(String message) {
-    System.out.println(message);
-    return scan.nextInt();
+    System.out.print(message);
+    return SevenScaleValidate(scan);
   }
 
   public void printStudent(ArrayList<Student> students) {
@@ -33,7 +33,6 @@ public class UI {
     int j = 1;
     for (int grade : grades) {
       System.out.println("Grade " + (j) + ". " + grade);
-      SevenScaleValidate(scan);
       j++;
     }
   }
@@ -48,18 +47,19 @@ public class UI {
     return nextNumber;
   }
 
-
-  public int SevenScaleValidate(Scanner scan){
+  public int SevenScaleValidate(Scanner scan) {
     int grade = validateInt(scan);
 
-    while (!(grade == -3 || grade == 00 || grade == 02 || grade == 4 || grade == 7 || grade == 10 || grade == 12)){
-      grade = getInt("Is not a validate grade");
+    while (!(grade == -3
+        || grade == 00
+        || grade == 02
+        || grade == 4
+        || grade == 7
+        || grade == 10
+        || grade == 12)) {
+      grade = getInt("Invalidate grade, enter a new grade: ");
     }
 
     return grade;
   }
-
-
-
-
 }
