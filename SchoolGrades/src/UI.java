@@ -5,9 +5,17 @@ public class UI {
 
   private int[] studentGrades;
   private ArrayList<Student> students;
+  private Scanner scan = new Scanner(System.in);
+
+
+  public void createGrades(){
+    for (int j = 0; j < studentGrades.length; j++) {
+      System.out.print("Enter your grade (" + (((j) + 1) + "/" + studentGrades.length) + ") : ");
+      studentGrades[j] = scan.nextInt();
+    }
+  }
 
   public void createStudent() {
-    Scanner scan = new Scanner(System.in);
     students = new ArrayList<>();
 
     System.out.print("Enter a number of student you wanna create: ");
@@ -20,10 +28,7 @@ public class UI {
       System.out.print("Enter a student name: ");
       String studentName = scan.next();
 
-      for (int j = 0; j < studentGrades.length; j++) {
-        System.out.print("Enter your grade (" + (((j) + 1) + "/" + studentGrades.length) + ") : ");
-        studentGrades[j] = scan.nextInt();
-      }
+      createGrades();
 
       students.add(new Student(studentName, studentGrades));
     }
