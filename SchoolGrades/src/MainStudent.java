@@ -1,18 +1,14 @@
-import java.util.Scanner;
-
 public class MainStudent {
 
-  Handler handler;
-  Scanner scan;
+  UI ui;
 
   public void run() {
-    handler.createStudent(scan);
-    handler.showStudent();
+    ui.createStudent();
+    ui.showStudent();
   }
 
   public MainStudent() {
-    handler = new Handler();
-    scan = new Scanner(System.in);
+    ui = new UI();
   }
 
   public static void main(String[] args) {

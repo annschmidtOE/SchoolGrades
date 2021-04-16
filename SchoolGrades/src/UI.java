@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Handler {
+public class UI {
 
   private int[] studentGrades;
   private ArrayList<Student> students;
 
-  public void createStudent(Scanner scan) {
+  public void createStudent() {
+    Scanner scan = new Scanner(System.in);
     students = new ArrayList<>();
 
     System.out.print("Enter a number of student you wanna create: ");
