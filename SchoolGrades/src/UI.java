@@ -17,15 +17,17 @@ public class UI {
 
   public int getGrade(String message) {
     System.out.print(message);
-    return SevenScaleValidate(scan);
+    return SevenScaleValidate();
   }
 
   public void printStudent(ArrayList<Student> students) {
-
     for (int i = 0; i < students.size(); i++) {
       System.out.print("\nStudent name: ");
       System.out.println(students.get(i).getName());
       printGrades(students.get(i).getGrades());
+
+      System.out.printf("Average grade: %.1f %n", printAverageGrade(students.get(i).getGrades()));
+      System.out.println();
     }
   }
 
@@ -37,7 +39,7 @@ public class UI {
     }
   }
 
-  public int validateInt(Scanner scan) {
+  public int validateInt() {
     while (!scan.hasNextInt()) {
       getString("Enter a number: ");
     }
@@ -47,8 +49,8 @@ public class UI {
     return nextNumber;
   }
 
-  public int SevenScaleValidate(Scanner scan) {
-    int grade = validateInt(scan);
+  public int SevenScaleValidate() {
+    int grade = validateInt();
 
     while (!(grade == -3
         || grade == 00
@@ -61,5 +63,16 @@ public class UI {
     }
 
     return grade;
+  }
+
+
+  public double printAverageGrade(int[] grades){
+    double result = 0;
+
+    for (int i = 0; i < grades.length; i++) {
+      result += grades[i];
+    }
+
+    return result / grades.length;
   }
 }
