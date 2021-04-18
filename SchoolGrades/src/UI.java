@@ -11,7 +11,7 @@ public class UI {
 
   public int getInt(String message) {
     System.out.print(message);
-    return scan.nextInt();
+    return validateInt();
   }
 
   public int getGrade(String message) {
@@ -61,7 +61,7 @@ public class UI {
 
   public int validateInt() {
     while (!scan.hasNextInt()) {
-      getString("Enter a number: ");
+      getString("Invalid input, enter a new number: ");
     }
     int nextNumber = scan.nextInt();
     scan.nextLine();
