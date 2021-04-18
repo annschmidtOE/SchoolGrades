@@ -39,6 +39,7 @@ public class UI {
     }
   }
 
+
   public int validateInt() {
     while (!scan.hasNextInt()) {
       getString("Enter a number: ");
@@ -64,7 +65,5 @@ public class UI {
 
     return grade;
   }
-
-
 
 }

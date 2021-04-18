@@ -8,7 +8,7 @@ public class School {
 
   public void run() {
     createStudent();
-    ui.printStudent(students, averageGrades());
+    ui.printStudent(students, averageGrades(students));
   }
 
   public int answerCountStudent() {
@@ -40,13 +40,14 @@ public class School {
     }
   }
 
-  public double[] averageGrades() {
-    double[] result = new double[students.size()];
+  public double[] averageGrades(ArrayList<Student> student) {
+    //The parameter is not necessary, but need it for the Unit test
 
-    for (int i = 0; i < students.size(); i++) {
+    double[] result = new double[student.size()];
+
+    for (int i = 0; i < student.size(); i++) {
       double resultGrades = 0;
-      int[] grades = students.get(i).getGrades();
-
+      int[] grades = student.get(i).getGrades();
 
       for (int j = 0; j < grades.length; j++) {
         resultGrades += grades[j];
