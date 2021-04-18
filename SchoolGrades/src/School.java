@@ -24,8 +24,12 @@ public class School {
     return ui.getInt("Enter a number of student you wanna create: ");
   }
 
-  public void createGrades() {
-    studentGrades = new int[7];
+  public int answerCountGrades() {
+    return ui.getInt("How many grades can each student have: ");
+  }
+
+  public void createGrades(int gradeCount) {
+    studentGrades = new int[gradeCount];
 
     for (int j = 0; j < studentGrades.length; j++) {
       studentGrades[j] =
@@ -38,13 +42,15 @@ public class School {
     students = new ArrayList<>();
 
     int studentCount = answerCountStudent();
+    int gradeCount = answerCountGrades();
+
 
     for (int i = 0; i < studentCount; i++) {
       System.out.println();
 
       String studentName = ui.getString("Enter a student name: ");
 
-      createGrades();
+      createGrades(gradeCount);
 
       students.add(new Student(studentName, studentGrades));
     }
