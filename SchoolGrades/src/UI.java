@@ -20,13 +20,13 @@ public class UI {
     return SevenScaleValidate();
   }
 
-  public void printStudent(ArrayList<Student> students) {
+  public void printStudent(ArrayList<Student> students, double[] averageGrade) {
     for (int i = 0; i < students.size(); i++) {
       System.out.print("\nStudent name: ");
       System.out.println(students.get(i).getName());
       printGrades(students.get(i).getGrades());
 
-      System.out.printf("Average grade: %.1f %n", printAverageGrade(students.get(i).getGrades()));
+      System.out.printf("Average grade: %.1f %n", averageGrade[i]);
       System.out.println();
     }
   }
@@ -66,13 +66,5 @@ public class UI {
   }
 
 
-  public double printAverageGrade(int[] grades){
-    double result = 0;
 
-    for (int i = 0; i < grades.length; i++) {
-      result += grades[i];
-    }
-
-    return result / grades.length;
-  }
 }

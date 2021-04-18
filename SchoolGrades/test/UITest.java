@@ -13,19 +13,5 @@ class UITest {
     ui = new UI();
   }
 
-  @Test
-  void averageGrade() {
 
-    //Arrange happens in setup
-
-    int[] grades = {10, 10, 10, 4};
-
-    //Act
-    double actual = ui.printAverageGrade(grades);
-
-    double expected = 8.5;
-
-    //Assert
-    assertEquals(expected, actual);
-  }
 }

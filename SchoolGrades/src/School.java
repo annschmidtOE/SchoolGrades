@@ -8,7 +8,7 @@ public class School {
 
   public void run() {
     createStudent();
-    ui.printStudent(students);
+    ui.printStudent(students, averageGrades());
   }
 
   public int answerCountStudent() {
@@ -38,5 +38,22 @@ public class School {
 
       students.add(new Student(studentName, studentGrades));
     }
+  }
+
+  public double[] averageGrades() {
+    double[] result = new double[students.size()];
+
+    for (int i = 0; i < students.size(); i++) {
+      double resultGrades = 0;
+      int[] grades = students.get(i).getGrades();
+
+
+      for (int j = 0; j < grades.length; j++) {
+        resultGrades += grades[j];
+      }
+      result[i] = resultGrades / grades.length;
+    }
+
+    return result;
   }
 }
