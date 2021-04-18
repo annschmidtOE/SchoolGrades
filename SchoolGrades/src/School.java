@@ -8,8 +8,17 @@ public class School {
 
   public void run() {
     createStudent();
-    ui.printStudent(students, averageGrades(students));
+    showStudents();
+    //ui.printStudent(students, averageGrades(students));
   }
+
+  public void showStudents(){
+
+    for (int i = 0; i < students.size(); i++) {
+      ui.printStudent(students.get(i), averageGrades(students.get(i)));
+    }
+  }
+
 
   public int answerCountStudent() {
     return ui.getInt("Enter a number of student you wanna create: ");
@@ -23,6 +32,7 @@ public class School {
           ui.getGrade("Enter your grade (" + (((j) + 1) + "/" + studentGrades.length) + ") : ");
     }
   }
+
 
   public void createStudent() {
     students = new ArrayList<>();
@@ -40,8 +50,24 @@ public class School {
     }
   }
 
+
+  public double averageGrades(Student student) {
+
+    int[] grades = student.getGrades();
+    double result = 0.0;
+
+    for (int j = 0; j < grades.length; j++) {
+      result += grades[j];
+    }
+    return result / grades.length;
+  }
+
+
+  /*
+  //Old code
   public double[] averageGrades(ArrayList<Student> student) {
     //The parameter is not necessary, but need it for the Unit test
+    //Instead of the parameter you can grab student from the class
 
     double[] result = new double[student.size()];
 
@@ -57,4 +83,8 @@ public class School {
 
     return result;
   }
+
+   */
+
+
 }

@@ -24,16 +24,13 @@ class SchoolTest {
     int[] grades = {10, 10, 10, 4};
 
     Student student1 = new Student("Ras", grades);
-    ArrayList<Student> students = new ArrayList<>();
-    students.add(student1);
-
 
     //Act
-    double[] actual = school.averageGrades(students);
+    double actual = school.averageGrades(student1);
 
     double expected = 8.5;
 
     //Assert
-    assertEquals(expected, actual[0]);
+    assertEquals(expected, actual);
   }
 }
